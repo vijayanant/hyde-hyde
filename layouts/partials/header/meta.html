@@ -12,7 +12,31 @@
     {{ $.Scratch.Add "theTitle" .Site.Title}}
 {{ end }}
 <title>{{ $.Scratch.Get "theTitle" }}</title>
-{{ with .Site.Params.meta.description }}<meta name="description" content="{{ . }}">{{ end }}
-{{ with .Site.Params.meta.keywords }}<meta name="keywords" content="{{.}}">{{ end }}
+
+{{ if .Params.Description }}
+  {{with .Params.Description }}
+    <meta name="description" content="{{ . }}">
+  {{ end }}
+{{else}}
+  {{with .Site.Params.Meta.Description }}
+    <meta name="description" content="{{ . }}">
+  {{ end }}
+{{ end }}
+
+
+{{if .Params.Tags}}
+  {{ with .Params.Tags }}
+    <meta name="keywords" content="{{ range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}">
+  {{ end }}
+{{else}}
+  {{ with .Site.Params.Meta.keywords }}
+    <meta name="keywords" content="{{.}}">
+  {{ end }}
+{{end}}
+
+<!-- Control the behavior of search engine crawling and indexing -->
+<meta name="robots" content="index,follow"><!-- All Search Engines -->
+<meta name="googlebot" content="index,follow"><!-- Google Specific -->
+
 {{ template "_internal/twitter_cards.html" . }}
 {{ template "_internal/opengraph.html" . }}
