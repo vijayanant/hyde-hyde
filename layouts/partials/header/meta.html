@@ -25,7 +25,8 @@
 
 
 {{if .Params.Tags}}
-  {{ with .Params.Tags }}
+  {{$tags := union .Params.Tags .Params.Categories}}
+  {{ with $tags }}
     <meta name="keywords" content="{{ range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}">
   {{ end }}
 {{else}}
