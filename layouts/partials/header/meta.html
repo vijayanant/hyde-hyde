@@ -6,10 +6,14 @@
 {{ .Hugo.Generator }}
 {{ if .IsHome }}
     {{ $.Scratch.Set "theTitle" .Site.Title }}
+    {{ $.Scratch.Add "theTitle" " • "}}
+    {{ $.Scratch.Add "theTitle" .Site.Params.Author}}
 {{else}}
     {{ $.Scratch.Add "theTitle" .Title}}
     {{ $.Scratch.Add "theTitle" " • "}}
     {{ $.Scratch.Add "theTitle" .Site.Title}}
+    {{ $.Scratch.Add "theTitle" " • "}}
+    {{ $.Scratch.Add "theTitle" .Site.Params.Author}}
 {{ end }}
 <title>{{ $.Scratch.Get "theTitle" }}</title>
 
