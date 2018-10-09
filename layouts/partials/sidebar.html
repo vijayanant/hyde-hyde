@@ -3,7 +3,7 @@
   <div class="container {{ with .Site.Params.sidebarSticky }}sidebar-sticky{{ end }}">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+        <a href="{{ .Site.BaseURL }}">{{ .Site.Params.Title }}</a>
       </span>
       {{ with .Site.Params.authorimage }}
       {{ $strippedSlash := ($.Site.Params.authorimage | replaceRE "^(/)+(.*)" "$2") }}

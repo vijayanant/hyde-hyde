@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 {{ .Hugo.Generator }}
 {{ if .IsHome }}
-    {{ $.Scratch.Set "theTitle" .Site.Title }}
+    {{ $.Scratch.Set "theTitle" .Site.Params.Title }}
     {{ $.Scratch.Add "theTitle" " • "}}
     {{ $.Scratch.Add "theTitle" .Site.Params.Author}}
 {{else}}
     {{ $.Scratch.Add "theTitle" .Title}}
     {{ $.Scratch.Add "theTitle" " • "}}
-    {{ $.Scratch.Add "theTitle" .Site.Title}}
+    {{ $.Scratch.Add "theTitle" .Site.Params.Title}}
     {{ $.Scratch.Add "theTitle" " • "}}
     {{ $.Scratch.Add "theTitle" .Site.Params.Author}}
 {{ end }}
