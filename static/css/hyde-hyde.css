@@ -127,7 +127,8 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: 400; }
+  font-weight: 400;
+  line-height: normal; }
 
 h1 {
   font-size: 2.15rem;
@@ -415,12 +416,12 @@ pre code {
   background-color: transparent; }
 
 .highlight {
-  padding: 1rem;
+  padding: 0.8rem;
   margin-bottom: 1rem;
   font-size: .8rem;
   line-height: 1.4;
-  background-color: #f9f9f9;
-  border-radius: .25rem; }
+  background-color: #272822;
+  border-radius: .5rem; }
   .highlight pre {
     margin-bottom: 0;
     overflow-x: auto; }
